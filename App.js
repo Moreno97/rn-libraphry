@@ -3,7 +3,14 @@
  */
 
 import React from 'react';
-import { FlatList, StyleSheet } from 'react-native';
+import {
+  SafeAreaView,
+  View,
+  SectionList,
+  StyleSheet,
+  StatusBar,
+  RefreshControl,
+} from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { Text } from 'react-native-paper';
 
@@ -13,73 +20,133 @@ class App extends React.PureComponent<*> {
   /**
    * Renders the item for the list
    */
-  renderItem = (item: Object) => {
-    return (
-      <BookItem
-        uri={item.item.uri}
-        name={item.item.name}
-        onPress={() => {}}
-        onFavorite={() => {}}
-        isFavorite={Math.random() >= 0.5}
-      />
-    );
+  renderItem = ({ section, index }) => {
+    const { data } = section;
+
+    if (index % 3 !== 0) {
+      return null;
+    }
+
+    const items = [];
+
+    for (let i = index; i < index + 3; i++) {
+      if (i >= section.data.length) {
+        break;
+      }
+
+      items.push(
+        <BookItem
+          key={`book-${data[i].id}`}
+          uri={data[i].uri}
+          name={data[i].name}
+          onPress={() => {}}
+          onFavorite={() => {}}
+          isFavorite={Math.random() >= 0.5}
+        />,
+      );
+    }
+
+    return <View style={styles.columnWrapper}>{items}</View>;
+  };
+
+  renderSectionHeader = ({ section }) => (
+    <Text style={styles.header}>{section.title}</Text>
+  );
+
+  onRefresh = () => {
+    // TODO: Get new data
   };
 
   keyExtractor = (item: Object) => `book-${item.id}`;
 
   render() {
     return (
-      <React.Fragment>
-        <Text style={styles.header}>Recommended</Text>
-        <FlatList
-          style={styles.container}
-          columnWrapperStyle={styles.columnWrapper}
-          numColumns={3}
-          data={[
+      <SafeAreaView
+        style={{
+          backgroundColor: 'black',
+        }}>
+        <StatusBar barStyle="light-content" />
+        <SectionList
+          contentContainerStyle={styles.container}
+          renderSectionHeader={this.renderSectionHeader}
+          refreshing={false}
+          refreshControl={
+            <RefreshControl
+              refreshing={false}
+              tintColor="#FFFFFF"
+              title="Pull to refresh"
+              titleColor="#FFFFFF"
+            />
+          }
+          onRefresh={this.onRefresh}
+          sections={[
             {
-              id: 0,
-              uri: 'https://imagessl4.casadellibro.com/a/l/t5/64/9788496208964.jpg',
-              name: 'Juego de tronos',
+              title: 'Novedades',
+              data: [
+                {
+                  id: 0,
+                  uri: 'https://imagessl4.casadellibro.com/a/l/t5/64/9788496208964.jpg',
+                  name: 'Juego de tronos',
+                },
+                {
+                  id: 1,
+                  uri:
+                    'https://images-na.ssl-images-amazon.com/images/I/51ucbngdycL._SX321_BO1,204,203,200_.jpg',
+                  name: 'Choque de reyes',
+                },
+                {
+                  id: 2,
+                  uri:
+                    'https://images-na.ssl-images-amazon.com/images/I/51qyFY-0VjL._SX334_BO1,204,203,200_.jpg',
+                  name: 'Tormenta de espadas',
+                },
+                {
+                  id: 3,
+                  uri:
+                    'https://images-eu.ssl-images-amazon.com/images/I/51xRknvHBsL.jpg',
+                  name: 'Festín de cuervos',
+                },
+              ],
             },
             {
-              id: 1,
-              uri:
-                'https://images-na.ssl-images-amazon.com/images/I/51ucbngdycL._SX321_BO1,204,203,200_.jpg',
-              name: 'Choque de reyes',
-            },
-            {
-              id: 2,
-              uri:
-                'https://images-na.ssl-images-amazon.com/images/I/51qyFY-0VjL._SX334_BO1,204,203,200_.jpg',
-              name: 'Tormenta de espadas',
-            },
-            {
-              id: 3,
-              uri: 'https://images-eu.ssl-images-amazon.com/images/I/51xRknvHBsL.jpg',
-              name: 'Festín de cuervos',
+              title: 'Recientes',
+              data: [
+                {
+                  id: 20,
+                  uri: 'https://imagessl4.casadellibro.com/a/l/t5/64/9788496208964.jpg',
+                  name: 'Juego de tronos',
+                },
+                {
+                  id: 23,
+                  uri:
+                    'https://images-na.ssl-images-amazon.com/images/I/51ucbngdycL._SX321_BO1,204,203,200_.jpg',
+                  name: 'Choque de reyes',
+                },
+              ],
             },
           ]}
           keyExtractor={this.keyExtractor}
           renderItem={this.renderItem}
         />
-        <Text style={styles.header}>Recently</Text>
-      </React.Fragment>
+      </SafeAreaView>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 0,
+    justifyContent: 'space-evenly',
   },
   columnWrapper: {
-    flex: 1,
+    flexDirection: 'row',
     justifyContent: 'space-evenly',
   },
   header: {
     fontFamily: 'DMSerifDisplay-Regular',
     fontSize: 26,
     padding: 10,
+    color: 'white',
+    backgroundColor: 'black',
   },
 });
 
@@ -89,6 +156,7 @@ export default createAppContainer(
       screen: App,
       navigationOptions: {
         title: 'Home',
+        header: null,
         headerStyle: {
           backgroundColor: 'rgba(242, 237, 218, 1)',
         },

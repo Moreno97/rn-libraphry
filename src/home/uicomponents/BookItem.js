@@ -54,10 +54,6 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
   },
-  chip: {
-    marginRight: 5,
-    marginBottom: 5,
-  },
   image: {
     width: '100%',
     height: '100%',
@@ -75,6 +71,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     left: 0,
+    height: 48,
     width: '100%',
     backgroundColor: 'rgba(0, 0, 0, 0.54)',
     alignItems: 'center',
