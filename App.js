@@ -1,97 +1,72 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
  * @flow
  */
 
-import React, { Fragment } from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import React from 'react';
+import { FlatList, StatusBar, StyleSheet } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 
-const App = () => {
-  return (
-    <Fragment>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this screen
-                and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </Fragment>
-  );
-};
+import BookItem from './src/home/uicomponents/BookItem';
+import { Text } from 'react-native-paper';
+
+class App extends React.PureComponent<*> {
+  /**
+   * Renders the item for the list
+   */
+  renderItem = (item: Object) => {
+    return <BookItem uri={item.item.uri} name={item.item.name} onPress={() => {}} />;
+  };
+
+  keyExtractor = (item: Object) => `book-${item.id}`;
+
+  render() {
+    return (
+      <React.Fragment>
+        <StatusBar barStyle="dark-content" />
+        <Text style={styles.header}>Recommended</Text>
+        <FlatList
+          columnWrapperStyle={styles.container}
+          numColumns={3}
+          data={[
+            {
+              id: 0,
+              uri: 'https://imagessl4.casadellibro.com/a/l/t5/64/9788496208964.jpg',
+              name: 'Juego de tronos',
+            },
+            {
+              id: 1,
+              uri:
+                'https://images-na.ssl-images-amazon.com/images/I/51ucbngdycL._SX321_BO1,204,203,200_.jpg',
+              name: 'Choque de reyes',
+            },
+            {
+              id: 2,
+              uri: 'https://images-eu.ssl-images-amazon.com/images/I/51q0ktorleL.jpg',
+              name: 'Tormenta de espadas',
+            },
+            {
+              id: 3,
+              uri: 'https://images-eu.ssl-images-amazon.com/images/I/51xRknvHBsL.jpg',
+              name: 'Festín de cuervos',
+            },
+          ]}
+          keyExtractor={this.keyExtractor}
+          renderItem={this.renderItem}
+        />
+      </React.Fragment>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  container: {
+    flex: 1,
+    justifyContent: 'space-evenly',
   },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
+  header: {
+    fontSize: 26,
+    fontFamily: 'DMSerifDisplay-Regular',
+    padding: 10,
   },
 });
 
