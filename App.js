@@ -3,18 +3,26 @@
  */
 
 import React from 'react';
-import { FlatList, StatusBar, StyleSheet } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { Text } from 'react-native-paper';
 
 import BookItem from './src/home/uicomponents/BookItem';
-import { Text } from 'react-native-paper';
 
 class App extends React.PureComponent<*> {
   /**
    * Renders the item for the list
    */
   renderItem = (item: Object) => {
-    return <BookItem uri={item.item.uri} name={item.item.name} onPress={() => {}} />;
+    return (
+      <BookItem
+        uri={item.item.uri}
+        name={item.item.name}
+        onPress={() => {}}
+        onFavorite={() => {}}
+        isFavorite={Math.random() >= 0.5}
+      />
+    );
   };
 
   keyExtractor = (item: Object) => `book-${item.id}`;
@@ -22,10 +30,10 @@ class App extends React.PureComponent<*> {
   render() {
     return (
       <React.Fragment>
-        <StatusBar barStyle="dark-content" />
         <Text style={styles.header}>Recommended</Text>
         <FlatList
-          columnWrapperStyle={styles.container}
+          style={styles.container}
+          columnWrapperStyle={styles.columnWrapper}
           numColumns={3}
           data={[
             {
@@ -41,7 +49,8 @@ class App extends React.PureComponent<*> {
             },
             {
               id: 2,
-              uri: 'https://images-eu.ssl-images-amazon.com/images/I/51q0ktorleL.jpg',
+              uri:
+                'https://images-na.ssl-images-amazon.com/images/I/51qyFY-0VjL._SX334_BO1,204,203,200_.jpg',
               name: 'Tormenta de espadas',
             },
             {
@@ -53,6 +62,7 @@ class App extends React.PureComponent<*> {
           keyExtractor={this.keyExtractor}
           renderItem={this.renderItem}
         />
+        <Text style={styles.header}>Recently</Text>
       </React.Fragment>
     );
   }
@@ -60,12 +70,15 @@ class App extends React.PureComponent<*> {
 
 const styles = StyleSheet.create({
   container: {
+    flexGrow: 0,
+  },
+  columnWrapper: {
     flex: 1,
     justifyContent: 'space-evenly',
   },
   header: {
-    fontSize: 26,
     fontFamily: 'DMSerifDisplay-Regular',
+    fontSize: 26,
     padding: 10,
   },
 });

@@ -4,35 +4,51 @@
 
 import React from 'react';
 import { View, StyleSheet, ImageBackground } from 'react-native';
-import { Headline, Card } from 'react-native-paper';
+import { IconButton, Headline, Card } from 'react-native-paper';
 
 type Props = {
   uri: string,
   name: string,
   onPress: Function,
+  onFavorite: Function,
+  isFavorite: boolean,
 };
 
-const BookItem = (props: Props) => (
-  <Card style={styles.card} onPress={props.onPress}>
-    <ImageBackground
-      resizeMode="cover"
-      source={{
-        uri: props.uri,
-      }}
-      style={styles.image}>
-      <View style={styles.container}>
-        <Headline style={styles.name} numberOfLines={1}>
-          {props.name}
-        </Headline>
-      </View>
-    </ImageBackground>
-  </Card>
-);
+const BookItem = ({ uri, name, onPress, onFavorite, isFavorite }: Props) => {
+  let icon = 'favorite-border';
+  let color = '#FFFFFF';
+
+  if (isFavorite) {
+    icon = 'favorite';
+    color = 'rgba(194, 24, 91, 1)';
+  }
+  return (
+    <Card style={styles.card} onPress={onPress}>
+      <ImageBackground
+        source={{
+          uri,
+        }}
+        style={styles.image}>
+        <IconButton
+          icon={icon}
+          color={color}
+          onPress={onFavorite}
+          style={styles.icon}
+        />
+        <View style={styles.container}>
+          <Headline style={styles.name} numberOfLines={1}>
+            {name}
+          </Headline>
+        </View>
+      </ImageBackground>
+    </Card>
+  );
+};
 
 const styles = StyleSheet.create({
   card: {
     flex: 1,
-    height: 160,
+    height: 180,
     margin: 5,
   },
   row: {
@@ -45,6 +61,7 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     height: '100%',
+    resizeMode: 'cover',
   },
   name: {
     color: '#FFFFFF',
@@ -65,8 +82,9 @@ const styles = StyleSheet.create({
   },
   icon: {
     position: 'absolute',
-    right: 5,
-    top: 15,
+    right: 0,
+    top: 0,
+    margin: 0,
   },
 });
 
