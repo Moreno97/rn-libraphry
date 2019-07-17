@@ -56,41 +56,31 @@ class BookDetail extends React.PureComponent<Props> {
       <View style={styles.container}>
         <ParallaxScrollView
           contentContainerStyle={styles.container}
+          contentBackgroundColor='#000000'
           parallaxHeaderHeight={220}
           stickyHeaderHeight={ifX(90, 74)}
           renderBackground={this.renderBackground}
           renderStickyHeader={this.renderStickyHeader}
           outputScaleValue={5}
           renderForeground={this.renderForeground}>
+          <Headline style={styles.header}>Autor</Headline>
+          <Text style={styles.content}>George R. R. Martin</Text>
           <Headline style={styles.header}>Editorial</Headline>
           <Text style={styles.content}>Gilmash</Text>
           <Headline style={styles.header}>Descripción</Headline>
           <Text style={styles.content}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris elementum
-            tempor congue. Duis est libero, vulputate sed maximus eget, efficitur eget
-            erat. Nam a porttitor sem, ut condimentum urna. Quisque accumsan mattis
-            magna, non placerat mi euismod eu. Morbi interdum convallis massa, at
-            sodales leo. Quisque vestibulum orci ac lobortis rutrum. Donec tellus
-            mauris, interdum eu pharetra a, auctor quis ipsum. Ut ultrices lacus in
-            felis semper rhoncus. Quisque faucibus in diam in mollis. Praesent dictum
-            ante in ultrices interdum. Vivamus placerat elit metus, nec dictum diam
-            posuere in. Praesent pharetra ullamcorper metus, ac tincidunt nisi gravida
-            vitae. Nam tristique mi magna, a congue justo tempor quis. Vivamus at purus
-            sagittis risus rutrum consectetur et ac massa.
-          </Text>
-          <Headline style={styles.header}>Información</Headline>
-          <Text style={styles.content}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris elementum
-            tempor congue. Duis est libero, vulputate sed maximus eget, efficitur eget
-            erat. Nam a porttitor sem, ut condimentum urna. Quisque accumsan mattis
-            magna, non placerat mi euismod eu. Morbi interdum convallis massa, at
-            sodales leo. Quisque vestibulum orci ac lobortis rutrum. Donec tellus
-            mauris, interdum eu pharetra a, auctor quis ipsum. Ut ultrices lacus in
-            felis semper rhoncus. Quisque faucibus in diam in mollis. Praesent dictum
-            ante in ultrices interdum. Vivamus placerat elit metus, nec dictum diam
-            posuere in. Praesent pharetra ullamcorper metus, ac tincidunt nisi gravida
-            vitae. Nam tristique mi magna, a congue justo tempor quis. Vivamus at purus
-            sagittis risus rutrum consectetur et ac massa.
+            Canción de hielo y fuego: Libro cuarto La novela río más espectacular jamás
+            escrita Mientras los vientos del otoño desnudan los árboles, las últimas
+            cosechas se pudren en los pocos campos que no han sido devastados por la
+            guerra, y por los ríos teñidos de rojo bajan cadáveres de todos los blasones
+            y estirpes. Y aunque casi todo Poniente yace extenuado, en diversos rincones
+            florecen nuevas e inquietantes intrigas que ansían nutrirse de los despojos
+            de un reino moribundo. George R.R. Martin continúa sumando hordas de
+            seguidores incondicionales mientras desgrana, con pulso firme y certero, una
+            de las experiencias literarias más ambiciosas y apasionantes que se hayan
+            propuesto nunca en el terreno de la fantasía. Festín de cuervos, como la
+            calma que precede a la tempestad, desarrolla nuevos personajes y tramas de
+            un retablo tenso y sobrecogedor.
           </Text>
         </ParallaxScrollView>
       </View>
