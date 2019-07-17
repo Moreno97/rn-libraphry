@@ -15,8 +15,13 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { Text } from 'react-native-paper';
 
 import BookItem from './src/home/uicomponents/BookItem';
+import BookDetail from './src/home/screens/BookDetail';
 
-class App extends React.PureComponent<*> {
+type Props = {
+  navigation: Object,
+};
+
+class App extends React.PureComponent<Props> {
   /**
    * Renders the item for the list
    */
@@ -39,7 +44,11 @@ class App extends React.PureComponent<*> {
           key={`book-${data[i].id}`}
           uri={data[i].uri}
           name={data[i].name}
-          onPress={() => {}}
+          onPress={() => {
+            this.props.navigation.navigate('Book', {
+              item: data[i],
+            });
+          }}
           onFavorite={() => {}}
           isFavorite={Math.random() >= 0.5}
         />,
@@ -154,16 +163,16 @@ export default createAppContainer(
   createStackNavigator({
     Home: {
       screen: App,
-      navigationOptions: {
+      navigationOptions: () => ({
         title: 'Home',
         header: null,
-        headerStyle: {
-          backgroundColor: 'rgba(242, 237, 218, 1)',
-        },
-        headerTitleStyle: {
-          fontFamily: 'Zapfino',
-        },
-      },
+      }),
+    },
+    Book: {
+      screen: BookDetail,
+      navigationOptions: () => ({
+        header: null,
+      }),
     },
   }),
 );

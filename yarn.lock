@@ -851,11 +851,6 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^12.0.9"
 
-"@monterosa/react-native-parallax-scroll@^1.8.0":
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/@monterosa/react-native-parallax-scroll/-/react-native-parallax-scroll-1.8.0.tgz#04339a772c02818b229582a8b903aca4f9106005"
-  integrity sha512-fFzJvMNN77d78haErRrZ/X64H0Vjz+5CvXSHBqxjlRQmhUB/R7BnqHwO3WFKGv2/Hv30LpL+0MSfHZeukglvDA==
-
 "@react-native-community/cli-platform-android@^2.0.1", "@react-native-community/cli-platform-android@^2.0.2":
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli-platform-android/-/cli-platform-android-2.0.2.tgz#e2e9a93d37d6dab3a8086b14e191210359cb2e45"
@@ -5323,6 +5318,13 @@ react-native-paper@^2.16.0:
     hoist-non-react-statics "^3.1.0"
     react-lifecycles-compat "^3.0.4"
     react-native-safe-area-view "^0.12.0"
+
+react-native-parallax-scroll-view@^0.21.3:
+  version "0.21.3"
+  resolved "https://registry.yarnpkg.com/react-native-parallax-scroll-view/-/react-native-parallax-scroll-view-0.21.3.tgz#d956ad224ce3b0a2725b80574bcbf688bbeda14e"
+  integrity sha512-oVbZPijNGYGcpU2z7k/ZOOnl0vYxch7qtVvaJpH4+wLVnEP49NC2diCzjFGz8PE0yEcgyeTdkpdUK8RTD3QEew==
+  dependencies:
+    prop-types "^15.6.0"
 
 react-native-safe-area-view@^0.12.0:
   version "0.12.0"
