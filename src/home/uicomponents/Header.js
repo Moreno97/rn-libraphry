@@ -5,8 +5,11 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { BaseButton } from 'react-native-gesture-handler';
-import Icon from 'react-native-vector-icons/Ionicons';
 import { Text } from 'react-native-paper';
+import Icon from 'react-native-vector-icons/Ionicons';
+
+// Utils
+import { ifX } from '../../utils';
 
 const Header = ({ name, onPress }) => (
   <View style={styles.container}>
@@ -25,7 +28,7 @@ const Header = ({ name, onPress }) => (
 const styles = StyleSheet.create({
   container: {
     height: 64,
-    marginTop: 16,
+    marginTop: ifX(34, 16),
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',

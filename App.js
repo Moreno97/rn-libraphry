@@ -72,6 +72,7 @@ class App extends React.PureComponent<Props> {
     return (
       <SafeAreaView
         style={{
+          flex: 1,
           backgroundColor: 'black',
         }}>
         <StatusBar barStyle="light-content" />

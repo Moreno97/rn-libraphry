@@ -6,8 +6,10 @@ import React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 import { Headline, Text } from 'react-native-paper';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
-
 import Header from '../uicomponents/Header';
+
+// Utils
+import { ifX } from '../../utils';
 
 type Props = {
   navigation: Object,
@@ -55,7 +57,7 @@ class BookDetail extends React.PureComponent<Props> {
         <ParallaxScrollView
           contentContainerStyle={styles.container}
           parallaxHeaderHeight={220}
-          stickyHeaderHeight={74}
+          stickyHeaderHeight={ifX(90, 74)}
           renderBackground={this.renderBackground}
           renderStickyHeader={this.renderStickyHeader}
           outputScaleValue={5}
@@ -105,6 +107,7 @@ const styles = StyleSheet.create({
     fontFamily: 'DMSerifDisplay-Regular',
     marginVertical: 5,
     margin: 20,
+    color: 'rgba(255, 164, 1, 1)',
   },
   content: {
     marginHorizontal: 20,
