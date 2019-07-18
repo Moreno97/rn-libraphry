@@ -47,6 +47,9 @@ class App extends React.PureComponent<Props> {
           onPress={() => {
             this.props.navigation.navigate('Book', {
               item: data[i],
+              onPress: () => {
+                // TODO: Mutation to change the book state as booked
+              },
             });
           }}
           isAvailable={Math.random() >= 0.5}
@@ -96,23 +99,27 @@ class App extends React.PureComponent<Props> {
                   id: 0,
                   uri: 'https://imagessl4.casadellibro.com/a/l/t5/64/9788496208964.jpg',
                   name: 'Juego de tronos',
+                  link: 'https://es.wikipedia.org/wiki/Fest%C3%ADn_de_cuervos',
                 },
                 {
                   id: 1,
                   uri: 'https://imagessl1.casadellibro.com/a/l/t5/81/9788496208681.jpg',
                   name: 'Choque de reyes',
+                  link: 'https://es.wikipedia.org/wiki/Fest%C3%ADn_de_cuervos',
                 },
                 {
                   id: 2,
                   uri:
                     'https://3.bp.blogspot.com/-CQIuuuOWiPg/XMH3Hf9BTKI/AAAAAAAAIx0/NFooR5H9AHMOLsN7lghtSTk0P1Htpf2wwCLcBGAs/s1600/tormenta-de-espadas-george-r-r-martin.jpg',
                   name: 'Tormenta de espadas',
+                  link: 'https://es.wikipedia.org/wiki/Fest%C3%ADn_de_cuervos',
                 },
                 {
                   id: 3,
                   uri:
                     'https://images-eu.ssl-images-amazon.com/images/I/51xRknvHBsL.jpg',
                   name: 'Festín de cuervos',
+                  link: 'https://es.wikipedia.org/wiki/Fest%C3%ADn_de_cuervos',
                 },
               ],
             },
@@ -123,11 +130,13 @@ class App extends React.PureComponent<Props> {
                   id: 20,
                   uri: 'https://imagessl4.casadellibro.com/a/l/t5/64/9788496208964.jpg',
                   name: 'Juego de tronos',
+                  link: 'https://es.wikipedia.org/wiki/Fest%C3%ADn_de_cuervos',
                 },
                 {
                   id: 23,
                   uri: 'https://imagessl1.casadellibro.com/a/l/t5/81/9788496208681.jpg',
                   name: 'Choque de reyes',
+                  link: 'https://es.wikipedia.org/wiki/Fest%C3%ADn_de_cuervos',
                 },
               ],
             },

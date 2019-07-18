@@ -3,8 +3,8 @@
  */
 
 import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
-import { Headline, Text } from 'react-native-paper';
+import { View, Image, StyleSheet, Linking } from 'react-native';
+import { Headline, Text, IconButton, Button } from 'react-native-paper';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import Header from '../uicomponents/Header';
 
@@ -13,9 +13,23 @@ import { ifX } from '../../utils';
 
 type Props = {
   navigation: Object,
+  onPress: Function,
 };
 
 class BookDetail extends React.PureComponent<Props> {
+  static navigationOptions = ({ navigation }: Object) => ({
+    headerRight: (
+      <IconButton
+        icon="link"
+        color="#FFFFFF"
+        onPress={() => {
+          const { item } = navigation.state.params;
+          Linking.openURL(item.link);
+        }}
+      />
+    ),
+  });
+
   renderStickyHeader = () => {
     const { item } = this.props.navigation.state.params;
     return <Header name={item.name} />;
@@ -43,7 +57,7 @@ class BookDetail extends React.PureComponent<Props> {
   };
 
   render() {
-    const { item } = this.props.navigation.state.params;
+    const { onPress } = this.props.navigation.state.params;
     return (
       <View style={styles.container}>
         <ParallaxScrollView
@@ -61,20 +75,22 @@ class BookDetail extends React.PureComponent<Props> {
           <Text style={styles.content}>Gilmash</Text>
           <Headline style={styles.header}>Descripción</Headline>
           <Text style={styles.content}>
-            Canción de hielo y fuego: Libro cuarto La novela río más espectacular jamás
-            escrita Mientras los vientos del otoño desnudan los árboles, las últimas
-            cosechas se pudren en los pocos campos que no han sido devastados por la
-            guerra, y por los ríos teñidos de rojo bajan cadáveres de todos los blasones
-            y estirpes. Y aunque casi todo Poniente yace extenuado, en diversos rincones
-            florecen nuevas e inquietantes intrigas que ansían nutrirse de los despojos
-            de un reino moribundo. George R.R. Martin continúa sumando hordas de
-            seguidores incondicionales mientras desgrana, con pulso firme y certero, una
-            de las experiencias literarias más ambiciosas y apasionantes que se hayan
-            propuesto nunca en el terreno de la fantasía. Festín de cuervos, como la
-            calma que precede a la tempestad, desarrolla nuevos personajes y tramas de
-            un retablo tenso y sobrecogedor.
+            Mientras los vientos del otoño desnudan los árboles, las últimas cosechas se
+            pudren en los pocos campos que no han sido devastados por la guerra, y por
+            los ríos teñidos de rojo bajan cadáveres de todos los blasones y estirpes. Y
+            aunque casi todo Poniente yace extenuado, en diversos rincones florecen
+            nuevas e inquietantes intrigas que ansían nutrirse de los despojos de un
+            reino moribundo. George R.R. Martin continúa sumando hordas de seguidores
+            incondicionales mientras desgrana, con pulso firme y certero, una de las
+            experiencias literarias más ambiciosas y apasionantes que se hayan propuesto
+            nunca en el terreno de la fantasía. Festín de cuervos, como la calma que
+            precede a la tempestad, desarrolla nuevos personajes y tramas de un retablo
+            tenso y sobrecogedor.
           </Text>
         </ParallaxScrollView>
+        <Button onPress={onPress} color="black" mode="outlined" style={styles.button}>
+          <Text style={styles.buttonText}>LEER</Text>
+        </Button>
       </View>
     );
   }
@@ -84,6 +100,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#000000',
+    paddingBottom: 50,
   },
   header: {
     fontFamily: 'DMSerifDisplay-Regular',
@@ -94,7 +111,8 @@ const styles = StyleSheet.create({
   content: {
     marginHorizontal: 20,
     marginVertical: 5,
-    fontSize: 16,
+    fontSize: 18,
+    lineHeight: 24,
   },
   image: {
     width: '100%',
@@ -112,6 +130,20 @@ const styles = StyleSheet.create({
     marginRight: 20,
     marginBottom: 5,
     fontFamily: 'DMSerifDisplay-Italic',
+  },
+  button: {
+    backgroundColor: '#FFFFFF',
+    height: 54,
+    justifyContent: 'center',
+    position: 'absolute',
+    bottom: 20,
+    left: 20,
+    right: 20,
+  },
+  buttonText: {
+    flex: 1,
+    color: '#000000',
+    fontSize: 18,
   },
 });
 
