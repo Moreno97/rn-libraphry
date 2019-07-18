@@ -6,6 +6,7 @@ import React from 'react';
 import { View, Image, StyleSheet, Linking } from 'react-native';
 import { Headline, Text, IconButton, Button } from 'react-native-paper';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import Header from '../uicomponents/Header';
 
 // Utils
@@ -56,6 +57,24 @@ class BookDetail extends React.PureComponent<Props> {
     );
   };
 
+  getRating() {
+    const { item } = this.props.navigation.state.params;
+    const stars = [];
+    for (let i = 0; i < item.rating; i++) {
+      stars.push(
+        <Icon
+          key={`icon-${i}`}
+          name="star"
+          size={18}
+          color="rgba(252, 226, 5, 1)"
+          style={styles.star}
+        />,
+      );
+    }
+
+    return stars;
+  }
+
   render() {
     const { onPress } = this.props.navigation.state.params;
     return (
@@ -73,6 +92,8 @@ class BookDetail extends React.PureComponent<Props> {
           <Text style={styles.content}>George R. R. Martin</Text>
           <Headline style={styles.header}>Editorial</Headline>
           <Text style={styles.content}>Gilmash</Text>
+          <Headline style={styles.header}>Valoración</Headline>
+          <View style={styles.stars}>{this.getRating()}</View>
           <Headline style={styles.header}>Descripción</Headline>
           <Text style={styles.content}>
             Mientras los vientos del otoño desnudan los árboles, las últimas cosechas se
@@ -132,18 +153,28 @@ const styles = StyleSheet.create({
     fontFamily: 'DMSerifDisplay-Italic',
   },
   button: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: 'rgba(0, 130, 160, 1)',
     height: 54,
     justifyContent: 'center',
     position: 'absolute',
-    bottom: 20,
+    bottom: ifX(40, 20),
     left: 20,
     right: 20,
   },
   buttonText: {
     flex: 1,
-    color: '#000000',
+    color: '#FFFFFF',
     fontSize: 18,
+    fontFamily: 'Georgia',
+    fontWeight: '600',
+  },
+  stars: {
+    marginLeft: 20,
+    marginRight: 20,
+    flexDirection: 'row',
+  },
+  star: {
+    marginRight: 5,
   },
 });
 
