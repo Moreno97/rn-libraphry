@@ -4,30 +4,20 @@
 
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { BaseButton } from 'react-native-gesture-handler';
 import { Text } from 'react-native-paper';
-import Icon from 'react-native-vector-icons/Ionicons';
 
 // Utils
 import { ifX } from '../../utils';
 
-const Header = ({ name, onPress }) => (
+const Header = ({ name }) => (
   <View style={styles.container}>
-    <View style={styles.header}>
-      <BaseButton onPress={onPress}>
-        <View style={styles.button}>
-          <Icon name="ios-arrow-back" size={30} color="#FFFFFF" />
-          <Text style={styles.buttonTitle}>Back</Text>
-        </View>
-      </BaseButton>
-    </View>
     <Text style={styles.title}>{name}</Text>
   </View>
 );
 
 const styles = StyleSheet.create({
   container: {
-    height: 64,
+    height: ifX(64, 54),
     marginTop: ifX(34, 16),
     flexDirection: 'row',
     alignItems: 'center',

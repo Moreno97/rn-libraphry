@@ -16,17 +16,9 @@ type Props = {
 };
 
 class BookDetail extends React.PureComponent<Props> {
-  static navigationOptions = ({ navigation }: Object) => ({
-    title: navigation.state.params.item.name,
-  });
-
-  onPress = () => {
-    this.props.navigation.goBack();
-  };
-
   renderStickyHeader = () => {
     const { item } = this.props.navigation.state.params;
-    return <Header name={item.name} onPress={this.onPress} />;
+    return <Header name={item.name} />;
   };
 
   renderBackground = () => {
@@ -56,7 +48,7 @@ class BookDetail extends React.PureComponent<Props> {
       <View style={styles.container}>
         <ParallaxScrollView
           contentContainerStyle={styles.container}
-          contentBackgroundColor='#000000'
+          contentBackgroundColor="#000000"
           parallaxHeaderHeight={220}
           stickyHeaderHeight={ifX(90, 74)}
           renderBackground={this.renderBackground}
@@ -107,6 +99,7 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     height: '100%',
+    resizeMode: 'cover',
   },
   foreground: {
     flex: 1,

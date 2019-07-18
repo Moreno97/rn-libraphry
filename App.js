@@ -167,12 +167,18 @@ export default createAppContainer(
       navigationOptions: () => ({
         title: 'Home',
         header: null,
+        headerBackTitle: null,
       }),
     },
     Book: {
       screen: BookDetail,
       navigationOptions: () => ({
-        header: null,
+        title: null,
+        headerStyle: {
+          backgroundColor: 'transparent',
+        },
+        headerTintColor: '#FFFFFF',
+        headerTransparent: true,
       }),
     },
   }),
