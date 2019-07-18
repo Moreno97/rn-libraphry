@@ -49,8 +49,7 @@ class App extends React.PureComponent<Props> {
               item: data[i],
             });
           }}
-          onFavorite={() => {}}
-          isFavorite={Math.random() >= 0.5}
+          isAvailable={Math.random() >= 0.5}
         />,
       );
     }
@@ -100,14 +99,13 @@ class App extends React.PureComponent<Props> {
                 },
                 {
                   id: 1,
-                  uri:
-                    'https://images-na.ssl-images-amazon.com/images/I/51ucbngdycL._SX321_BO1,204,203,200_.jpg',
+                  uri: 'https://imagessl1.casadellibro.com/a/l/t5/81/9788496208681.jpg',
                   name: 'Choque de reyes',
                 },
                 {
                   id: 2,
                   uri:
-                    'https://images-na.ssl-images-amazon.com/images/I/51qyFY-0VjL._SX334_BO1,204,203,200_.jpg',
+                    'https://3.bp.blogspot.com/-CQIuuuOWiPg/XMH3Hf9BTKI/AAAAAAAAIx0/NFooR5H9AHMOLsN7lghtSTk0P1Htpf2wwCLcBGAs/s1600/tormenta-de-espadas-george-r-r-martin.jpg',
                   name: 'Tormenta de espadas',
                 },
                 {
@@ -128,8 +126,7 @@ class App extends React.PureComponent<Props> {
                 },
                 {
                   id: 23,
-                  uri:
-                    'https://images-na.ssl-images-amazon.com/images/I/51ucbngdycL._SX321_BO1,204,203,200_.jpg',
+                  uri: 'https://imagessl1.casadellibro.com/a/l/t5/81/9788496208681.jpg',
                   name: 'Choque de reyes',
                 },
               ],
@@ -161,25 +158,30 @@ const styles = StyleSheet.create({
 });
 
 export default createAppContainer(
-  createStackNavigator({
-    Home: {
-      screen: App,
-      navigationOptions: () => ({
-        title: 'Home',
-        header: null,
-        headerBackTitle: null,
-      }),
+  createStackNavigator(
+    {
+      Home: {
+        screen: App,
+        navigationOptions: () => ({
+          title: 'Home',
+          header: null,
+          headerBackTitle: null,
+        }),
+      },
+      Book: {
+        screen: BookDetail,
+        navigationOptions: () => ({
+          title: null,
+          headerStyle: {
+            backgroundColor: 'transparent',
+          },
+          headerTintColor: '#FFFFFF',
+          headerTransparent: true,
+        }),
+      },
     },
-    Book: {
-      screen: BookDetail,
-      navigationOptions: () => ({
-        title: null,
-        headerStyle: {
-          backgroundColor: 'transparent',
-        },
-        headerTintColor: '#FFFFFF',
-        headerTransparent: true,
-      }),
+    {
+      headerMode: 'screen',
     },
-  }),
+  ),
 );

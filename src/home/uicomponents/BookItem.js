@@ -4,23 +4,21 @@
 
 import React from 'react';
 import { View, StyleSheet, ImageBackground } from 'react-native';
-import { IconButton, Headline, Card } from 'react-native-paper';
+import { Headline, Card, IconButton } from 'react-native-paper';
 
 type Props = {
   uri: string,
   name: string,
   onPress: Function,
-  onFavorite: Function,
-  isFavorite: boolean,
+  isAvailable: Function,
 };
 
-const BookItem = ({ uri, name, onPress, onFavorite, isFavorite }: Props) => {
-  let icon = 'favorite-border';
+const BookItem = ({ uri, name, onPress, isAvailable }: Props) => {
+  let icon = 'bookmark-border';
   let color = '#FFFFFF';
 
-  if (isFavorite) {
-    icon = 'favorite';
-    color = 'rgba(194, 24, 91, 1)';
+  if (isAvailable) {
+    icon = 'bookmark';
   }
   return (
     <Card style={styles.card} onPress={onPress}>
@@ -29,12 +27,7 @@ const BookItem = ({ uri, name, onPress, onFavorite, isFavorite }: Props) => {
           uri,
         }}
         style={styles.image}>
-        <IconButton
-          icon={icon}
-          color={color}
-          onPress={onFavorite}
-          style={styles.icon}
-        />
+        <IconButton icon={icon} color={color} style={styles.icon} />
         <View style={styles.container}>
           <Headline style={styles.name} numberOfLines={1}>
             {name}
@@ -79,9 +72,17 @@ const styles = StyleSheet.create({
   },
   icon: {
     position: 'absolute',
-    right: 0,
+    right: -3,
     top: 0,
     margin: 0,
+  },
+  badge: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    width: 10,
+    height: 10,
+    backgroundColor: 'red',
   },
 });
 

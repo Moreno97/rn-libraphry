@@ -107,9 +107,11 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#FFFFFF',
-    fontSize: 28,
-    margin: 20,
-    fontFamily: 'DMSerifDisplay-Regular',
+    fontSize: 34,
+    marginLeft: 20,
+    marginRight: 20,
+    marginBottom: 5,
+    fontFamily: 'DMSerifDisplay-Italic',
   },
 });
 
