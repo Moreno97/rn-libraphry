@@ -98,25 +98,13 @@ class BookDetail extends React.PureComponent<Props> {
             />
           </View>
           <Headline style={styles.header}>Autor</Headline>
-          <Text style={styles.content}>George R. R. Martin</Text>
+          <Text style={styles.content}>{item.author}</Text>
           <Headline style={styles.header}>Editorial</Headline>
-          <Text style={styles.content}>Gilmash</Text>
+          <Text style={styles.content}>{item.publisher}</Text>
           <Headline style={styles.header}>Valoración</Headline>
           <View style={styles.stars}>{this.getRating()}</View>
           <Headline style={styles.header}>Descripción</Headline>
-          <Text style={styles.content}>
-            Mientras los vientos del otoño desnudan los árboles, las últimas cosechas se
-            pudren en los pocos campos que no han sido devastados por la guerra, y por
-            los ríos teñidos de rojo bajan cadáveres de todos los blasones y estirpes. Y
-            aunque casi todo Poniente yace extenuado, en diversos rincones florecen
-            nuevas e inquietantes intrigas que ansían nutrirse de los despojos de un
-            reino moribundo. George R.R. Martin continúa sumando hordas de seguidores
-            incondicionales mientras desgrana, con pulso firme y certero, una de las
-            experiencias literarias más ambiciosas y apasionantes que se hayan propuesto
-            nunca en el terreno de la fantasía. Festín de cuervos, como la calma que
-            precede a la tempestad, desarrolla nuevos personajes y tramas de un retablo
-            tenso y sobrecogedor.
-          </Text>
+          <Text style={styles.content}>{item.description}</Text>
         </ParallaxScrollView>
         <Button
           icon="book"

@@ -102,6 +102,10 @@ class App extends React.PureComponent<Props> {
                   link: 'https://es.wikipedia.org/wiki/Fest%C3%ADn_de_cuervos',
                   rating: 5,
                   isAvailable: true,
+                  author: 'George R. R. Martin',
+                  publisher: 'Gilmash',
+                  description:
+                    'Mientras los vientos del otoño desnudan los árboles, las últimas cosechas se pudren en los pocos campos que no han sido devastados por la guerra, y por los ríos teñidos de rojo bajan cadáveres de todos los blasones y estirpes. Y aunque casi todo Poniente yace extenuado, en diversos rincones florecen nuevas e inquietantes intrigas que ansían nutrirse de los despojos de un reino moribundo. George R.R. Martin continúa sumando hordas de seguidores incondicionales mientras desgrana, con pulso firme y certero, una de las experiencias literarias más ambiciosas y apasionantes que se hayan propuesto nunca en el terreno de la fantasía. Festín de cuervos, como la calma que precede a la tempestad, desarrolla nuevos personajes y tramas de un retablo tenso y sobrecogedor.',
                 },
                 {
                   id: 1,
@@ -110,6 +114,10 @@ class App extends React.PureComponent<Props> {
                   link: 'https://es.wikipedia.org/wiki/Fest%C3%ADn_de_cuervos',
                   rating: 5,
                   isAvailable: true,
+                  author: 'George R. R. Martin',
+                  publisher: 'Gilmash',
+                  description:
+                    'Mientras los vientos del otoño desnudan los árboles, las últimas cosechas se pudren en los pocos campos que no han sido devastados por la guerra, y por los ríos teñidos de rojo bajan cadáveres de todos los blasones y estirpes. Y aunque casi todo Poniente yace extenuado, en diversos rincones florecen nuevas e inquietantes intrigas que ansían nutrirse de los despojos de un reino moribundo. George R.R. Martin continúa sumando hordas de seguidores incondicionales mientras desgrana, con pulso firme y certero, una de las experiencias literarias más ambiciosas y apasionantes que se hayan propuesto nunca en el terreno de la fantasía. Festín de cuervos, como la calma que precede a la tempestad, desarrolla nuevos personajes y tramas de un retablo tenso y sobrecogedor.',
                 },
                 {
                   id: 2,
@@ -119,6 +127,10 @@ class App extends React.PureComponent<Props> {
                   link: 'https://es.wikipedia.org/wiki/Fest%C3%ADn_de_cuervos',
                   rating: 5,
                   isAvailable: false,
+                  author: 'George R. R. Martin',
+                  publisher: 'Gilmash',
+                  description:
+                    'Mientras los vientos del otoño desnudan los árboles, las últimas cosechas se pudren en los pocos campos que no han sido devastados por la guerra, y por los ríos teñidos de rojo bajan cadáveres de todos los blasones y estirpes. Y aunque casi todo Poniente yace extenuado, en diversos rincones florecen nuevas e inquietantes intrigas que ansían nutrirse de los despojos de un reino moribundo. George R.R. Martin continúa sumando hordas de seguidores incondicionales mientras desgrana, con pulso firme y certero, una de las experiencias literarias más ambiciosas y apasionantes que se hayan propuesto nunca en el terreno de la fantasía. Festín de cuervos, como la calma que precede a la tempestad, desarrolla nuevos personajes y tramas de un retablo tenso y sobrecogedor.',
                 },
                 {
                   id: 3,
@@ -128,6 +140,10 @@ class App extends React.PureComponent<Props> {
                   link: 'https://es.wikipedia.org/wiki/Fest%C3%ADn_de_cuervos',
                   rating: 4,
                   isAvailable: false,
+                  author: 'George R. R. Martin',
+                  publisher: 'Gilmash',
+                  description:
+                    'Mientras los vientos del otoño desnudan los árboles, las últimas cosechas se pudren en los pocos campos que no han sido devastados por la guerra, y por los ríos teñidos de rojo bajan cadáveres de todos los blasones y estirpes. Y aunque casi todo Poniente yace extenuado, en diversos rincones florecen nuevas e inquietantes intrigas que ansían nutrirse de los despojos de un reino moribundo. George R.R. Martin continúa sumando hordas de seguidores incondicionales mientras desgrana, con pulso firme y certero, una de las experiencias literarias más ambiciosas y apasionantes que se hayan propuesto nunca en el terreno de la fantasía. Festín de cuervos, como la calma que precede a la tempestad, desarrolla nuevos personajes y tramas de un retablo tenso y sobrecogedor.',
                 },
               ],
             },
@@ -141,6 +157,10 @@ class App extends React.PureComponent<Props> {
                   link: 'https://es.wikipedia.org/wiki/Fest%C3%ADn_de_cuervos',
                   rating: 4,
                   isAvailable: true,
+                  author: 'George R. R. Martin',
+                  publisher: 'Gilmash',
+                  description:
+                    'Mientras los vientos del otoño desnudan los árboles, las últimas cosechas se pudren en los pocos campos que no han sido devastados por la guerra, y por los ríos teñidos de rojo bajan cadáveres de todos los blasones y estirpes. Y aunque casi todo Poniente yace extenuado, en diversos rincones florecen nuevas e inquietantes intrigas que ansían nutrirse de los despojos de un reino moribundo. George R.R. Martin continúa sumando hordas de seguidores incondicionales mientras desgrana, con pulso firme y certero, una de las experiencias literarias más ambiciosas y apasionantes que se hayan propuesto nunca en el terreno de la fantasía. Festín de cuervos, como la calma que precede a la tempestad, desarrolla nuevos personajes y tramas de un retablo tenso y sobrecogedor.',
                 },
                 {
                   id: 23,
@@ -149,6 +169,10 @@ class App extends React.PureComponent<Props> {
                   link: 'https://es.wikipedia.org/wiki/Fest%C3%ADn_de_cuervos',
                   rating: 4,
                   isAvailable: true,
+                  author: 'George R. R. Martin',
+                  publisher: 'Gilmash',
+                  description:
+                    'Mientras los vientos del otoño desnudan los árboles, las últimas cosechas se pudren en los pocos campos que no han sido devastados por la guerra, y por los ríos teñidos de rojo bajan cadáveres de todos los blasones y estirpes. Y aunque casi todo Poniente yace extenuado, en diversos rincones florecen nuevas e inquietantes intrigas que ansían nutrirse de los despojos de un reino moribundo. George R.R. Martin continúa sumando hordas de seguidores incondicionales mientras desgrana, con pulso firme y certero, una de las experiencias literarias más ambiciosas y apasionantes que se hayan propuesto nunca en el terreno de la fantasía. Festín de cuervos, como la calma que precede a la tempestad, desarrolla nuevos personajes y tramas de un retablo tenso y sobrecogedor.',
                 },
               ],
             },
