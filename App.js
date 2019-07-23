@@ -52,7 +52,7 @@ class App extends React.PureComponent<Props> {
               },
             });
           }}
-          isAvailable={Math.random() >= 0.5}
+          isAvailable={data[i].isAvailable}
         />,
       );
     }
@@ -101,6 +101,7 @@ class App extends React.PureComponent<Props> {
                   name: 'Juego de tronos',
                   link: 'https://es.wikipedia.org/wiki/Fest%C3%ADn_de_cuervos',
                   rating: 5,
+                  isAvailable: true,
                 },
                 {
                   id: 1,
@@ -108,6 +109,7 @@ class App extends React.PureComponent<Props> {
                   name: 'Choque de reyes',
                   link: 'https://es.wikipedia.org/wiki/Fest%C3%ADn_de_cuervos',
                   rating: 5,
+                  isAvailable: true,
                 },
                 {
                   id: 2,
@@ -116,6 +118,7 @@ class App extends React.PureComponent<Props> {
                   name: 'Tormenta de espadas',
                   link: 'https://es.wikipedia.org/wiki/Fest%C3%ADn_de_cuervos',
                   rating: 5,
+                  isAvailable: false,
                 },
                 {
                   id: 3,
@@ -124,6 +127,7 @@ class App extends React.PureComponent<Props> {
                   name: 'Festín de cuervos',
                   link: 'https://es.wikipedia.org/wiki/Fest%C3%ADn_de_cuervos',
                   rating: 4,
+                  isAvailable: false,
                 },
               ],
             },
@@ -136,6 +140,7 @@ class App extends React.PureComponent<Props> {
                   name: 'Juego de tronos',
                   link: 'https://es.wikipedia.org/wiki/Fest%C3%ADn_de_cuervos',
                   rating: 4,
+                  isAvailable: true,
                 },
                 {
                   id: 23,
@@ -143,6 +148,7 @@ class App extends React.PureComponent<Props> {
                   name: 'Choque de reyes',
                   link: 'https://es.wikipedia.org/wiki/Fest%C3%ADn_de_cuervos',
                   rating: 4,
+                  isAvailable: true,
                 },
               ],
             },

@@ -14,11 +14,11 @@ type Props = {
 };
 
 const BookItem = ({ uri, name, onPress, isAvailable }: Props) => {
-  let icon = 'bookmark-border';
+  let icon = 'cancel';
   let color = '#FFFFFF';
 
   if (isAvailable) {
-    icon = 'bookmark';
+    icon = 'check-circle';
   }
   return (
     <Card style={styles.card} onPress={onPress}>

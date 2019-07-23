@@ -63,7 +63,7 @@ class BookDetail extends React.PureComponent<Props> {
     for (let i = 0; i < item.rating; i++) {
       stars.push(
         <Icon
-          key={`icon-${i}`}
+          key={`star-${i}`}
           name="star"
           size={18}
           color="rgba(252, 226, 5, 1)"
@@ -76,7 +76,7 @@ class BookDetail extends React.PureComponent<Props> {
   }
 
   render() {
-    const { onPress } = this.props.navigation.state.params;
+    const { item, onPress } = this.props.navigation.state.params;
     return (
       <View style={styles.container}>
         <ParallaxScrollView
@@ -88,6 +88,15 @@ class BookDetail extends React.PureComponent<Props> {
           renderStickyHeader={this.renderStickyHeader}
           outputScaleValue={5}
           renderForeground={this.renderForeground}>
+          <Headline style={styles.header}>Disponible</Headline>
+          <View style={styles.stars}>
+            <Icon
+              name={item.isAvailable ? 'check' : 'close'}
+              size={18}
+              color={item.isAvailable ? '#0B6623' : '#FF0000'}
+              style={styles.star}
+            />
+          </View>
           <Headline style={styles.header}>Autor</Headline>
           <Text style={styles.content}>George R. R. Martin</Text>
           <Headline style={styles.header}>Editorial</Headline>
@@ -109,8 +118,15 @@ class BookDetail extends React.PureComponent<Props> {
             tenso y sobrecogedor.
           </Text>
         </ParallaxScrollView>
-        <Button onPress={onPress} color="black" mode="outlined" style={styles.button}>
-          <Text style={styles.buttonText}>LEER</Text>
+        <Button
+          icon="book"
+          onPress={onPress}
+          disabled={!item.isAvailable}
+          color="white"
+          mode="outlined"
+          style={styles.button}
+          contentStyle={styles.contentButton}>
+          PEDIR
         </Button>
       </View>
     );
@@ -155,14 +171,12 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: 'rgba(0, 130, 160, 1)',
     height: 54,
-    justifyContent: 'center',
     position: 'absolute',
     bottom: ifX(40, 20),
     left: 20,
     right: 20,
   },
   buttonText: {
-    flex: 1,
     color: '#FFFFFF',
     fontSize: 18,
     fontFamily: 'Georgia',
@@ -172,9 +186,13 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
     flexDirection: 'row',
+    marginVertical: 5,
   },
   star: {
     marginRight: 5,
+  },
+  contentButton: {
+    height: 54,
   },
 });
 
