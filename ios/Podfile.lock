@@ -83,8 +83,6 @@ PODS:
     - React-fishhook (= 0.60.0)
   - RNGestureHandler (1.3.0):
     - React
-  - RNVectorIcons (6.6.0):
-    - React
   - yoga (0.60.0.React)
 
 DEPENDENCIES:
@@ -109,12 +107,11 @@ DEPENDENCIES:
   - React-RCTText (from `../node_modules/react-native/Libraries/Text`)
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - React-RCTWebSocket (from `../node_modules/react-native/Libraries/WebSocket`)
-  - RNGestureHandler (from `/Users/amoreno-apsl/APSL/libraphry/node_modules/react-native-gesture-handler`)
-  - RNVectorIcons (from `/Users/amoreno-apsl/APSL/libraphry/node_modules/react-native-vector-icons`)
+  - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - boost-for-react-native
 
 EXTERNAL SOURCES:
@@ -161,9 +158,7 @@ EXTERNAL SOURCES:
   React-RCTWebSocket:
     :path: "../node_modules/react-native/Libraries/WebSocket"
   RNGestureHandler:
-    :path: "/Users/amoreno-apsl/APSL/libraphry/node_modules/react-native-gesture-handler"
-  RNVectorIcons:
-    :path: "/Users/amoreno-apsl/APSL/libraphry/node_modules/react-native-vector-icons"
+    :path: "../node_modules/react-native-gesture-handler"
   yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -191,9 +186,8 @@ SPEC CHECKSUMS:
   React-RCTVibration: 4ee1cf208ab17a50fafb1c16ffe28fe594a64e4f
   React-RCTWebSocket: fca087d583724aa0e5fef7d911f0f2a28d0f2736
   RNGestureHandler: 5329a942fce3d41c68b84c2c2276ce06a696d8b0
-  RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   yoga: 616fde658be980aa60a2158835170f3f9c2d04b4
 
-PODFILE CHECKSUM: 5b2917144e423556792a126e8761d9fa93e4849d
+PODFILE CHECKSUM: 9d2cc1147cd5b9127269c932da0a418db66bd2cf
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.8.4

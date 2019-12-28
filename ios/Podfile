@@ -28,20 +28,6 @@ target 'libraphry' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  target 'libraphryTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  use_native_modules!
-end
-
-target 'libraphry-tvOS' do
-  # Pods for libraphry-tvOS
-
-  target 'libraphry-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
 end
