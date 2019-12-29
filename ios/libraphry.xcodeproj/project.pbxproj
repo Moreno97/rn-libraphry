@@ -25,6 +25,11 @@
 		3C3678ED22CFA8AA00F52CA2 /* DMSerifDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C3678EB22CFA5B700F52CA2 /* DMSerifDisplay-Regular.ttf */; };
 		4124253D8A62DDB493E5736D /* libPods-libraphry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C11AD9093F0472C0BBE3A61 /* libPods-libraphry.a */; };
 		4EE112E718AD471B99D888B6 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7B5686BB7E543F2AD164C6E /* Fontisto.ttf */; };
+		527026AA23B830660031CB21 /* RNBarcodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527026A923B830660031CB21 /* RNBarcodeScanner.swift */; };
+		527026AB23B8332E0031CB21 /* RNBarcodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527026A923B830660031CB21 /* RNBarcodeScanner.swift */; };
+		527026AE23B837380031CB21 /* RNBarcodeScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 527026AD23B837380031CB21 /* RNBarcodeScanner.m */; };
+		527026B023B839840031CB21 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 527026AF23B839840031CB21 /* GoogleService-Info.plist */; };
+		527026B323B8BE400031CB21 /* RNBarcodeScannerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527026B223B8BE400031CB21 /* RNBarcodeScannerManager.swift */; };
 		5B6EDAC5A0AF488782948D22 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB862E3EBED5432896EE90A0 /* MaterialCommunityIcons.ttf */; };
 		75FBBFEDF4734246B568DFE1 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 990627B0E0DE42D7A7AA5928 /* Feather.ttf */; };
 		93743BC2D12E467FA10C704B /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39B4C36324BE4E9996D5CE77 /* EvilIcons.ttf */; };
@@ -67,6 +72,12 @@
 		3C3678EA22CFA5B700F52CA2 /* DMSerifDisplay-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSerifDisplay-Italic.ttf"; sourceTree = "<group>"; };
 		3C3678EB22CFA5B700F52CA2 /* DMSerifDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSerifDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		4955C4201FC3495382586ABB /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		527026A923B830660031CB21 /* RNBarcodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNBarcodeScanner.swift; sourceTree = SOURCE_ROOT; };
+		527026AC23B833EA0031CB21 /* libraphry-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libraphry-Bridging-Header.h"; sourceTree = "<group>"; };
+		527026AD23B837380031CB21 /* RNBarcodeScanner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNBarcodeScanner.m; sourceTree = "<group>"; };
+		527026AF23B839840031CB21 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		527026B223B8BE400031CB21 /* RNBarcodeScannerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNBarcodeScannerManager.swift; sourceTree = "<group>"; };
+		527026B423B8BEED0031CB21 /* RNBarcodeScanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNBarcodeScanner.h; sourceTree = "<group>"; };
 		6E5F98A4DBD140D78CC517D4 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		7DE0236ADD4A46A4957254B8 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		91D103EC056C4957A91CE992 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
@@ -140,6 +151,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				527026AF23B839840031CB21 /* GoogleService-Info.plist */,
 			);
 			name = libraphry;
 			sourceTree = "<group>";
@@ -164,6 +176,18 @@
 				9F7BBE529F87D77BE82414A9 /* Pods-libraphryTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		527026B123B8BE150031CB21 /* BarcodeScanner */ = {
+			isa = PBXGroup;
+			children = (
+				527026A923B830660031CB21 /* RNBarcodeScanner.swift */,
+				527026B223B8BE400031CB21 /* RNBarcodeScannerManager.swift */,
+				527026AD23B837380031CB21 /* RNBarcodeScanner.m */,
+				527026B423B8BEED0031CB21 /* RNBarcodeScanner.h */,
+				527026AC23B833EA0031CB21 /* libraphry-Bridging-Header.h */,
+			);
+			name = BarcodeScanner;
 			sourceTree = "<group>";
 		};
 		8261055AE8104A1289DD0FAB /* Resources */ = {
@@ -194,6 +218,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				527026B123B8BE150031CB21 /* BarcodeScanner */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -294,7 +319,8 @@
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = 5RY4T725CY;
+						DevelopmentTeam = P847BRHZ8R;
+						LastSwiftMigration = 1130;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -353,6 +379,7 @@
 				C2F7B04099B8404F9E620C40 /* Zocial.ttf in Resources */,
 				3C3678ED22CFA8AA00F52CA2 /* DMSerifDisplay-Regular.ttf in Resources */,
 				3C3678EC22CFA8AA00F52CA2 /* DMSerifDisplay-Italic.ttf in Resources */,
+				527026B023B839840031CB21 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,7 +497,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				527026B323B8BE400031CB21 /* RNBarcodeScannerManager.swift in Sources */,
+				527026AA23B830660031CB21 /* RNBarcodeScanner.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				527026AE23B837380031CB21 /* RNBarcodeScanner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +509,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */,
+				527026AB23B8332E0031CB21 /* RNBarcodeScanner.swift in Sources */,
 				2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,18 +550,23 @@
 			baseConfigurationReference = A97C65178E240AB5E6D82BA9 /* Pods-libraphry.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = 5RY4T725CY;
+				DEVELOPMENT_TEAM = P847BRHZ8R;
 				INFOPLIST_FILE = libraphry/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.libraphry;
 				PRODUCT_NAME = libraphry;
+				SWIFT_OBJC_BRIDGING_HEADER = "libraphry-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -540,17 +576,21 @@
 			baseConfigurationReference = 313805A39CB009A79CFEA553 /* Pods-libraphry.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5RY4T725CY;
+				DEVELOPMENT_TEAM = P847BRHZ8R;
 				INFOPLIST_FILE = libraphry/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.libraphry;
 				PRODUCT_NAME = libraphry;
+				SWIFT_OBJC_BRIDGING_HEADER = "libraphry-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -612,6 +652,7 @@
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -638,6 +679,7 @@
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
