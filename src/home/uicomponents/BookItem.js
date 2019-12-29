@@ -15,7 +15,7 @@ type Props = {
 
 const BookItem = ({ uri, name, onPress, isAvailable }: Props) => {
   let icon = 'cancel';
-  let color = '#FFFFFF';
+  let color = 'rgba(255, 255, 255, 0.25)';
 
   if (isAvailable) {
     icon = 'check-circle';
@@ -27,7 +27,7 @@ const BookItem = ({ uri, name, onPress, isAvailable }: Props) => {
           uri,
         }}
         style={styles.image}>
-        <IconButton icon={icon} color={color} style={styles.icon} />
+        <IconButton icon={icon} color={color} size={40} />
         <View style={styles.container}>
           <Headline style={styles.name} numberOfLines={1}>
             {name}
@@ -51,6 +51,8 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     resizeMode: 'cover',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   name: {
     color: '#FFFFFF',
@@ -69,12 +71,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.54)',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  icon: {
-    position: 'absolute',
-    right: -3,
-    top: 0,
-    margin: 0,
   },
   badge: {
     position: 'absolute',

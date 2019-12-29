@@ -12,10 +12,11 @@ import {
   RefreshControl,
 } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
-import { Text } from 'react-native-paper';
+import { Text, FAB, Colors } from 'react-native-paper';
 
 import BookItem from './src/home/uicomponents/BookItem';
 import BookDetail from './src/home/screens/BookDetail';
+import { ifX } from './src/utils';
 
 type Props = {
   navigation: Object,
@@ -66,6 +67,10 @@ class App extends React.PureComponent<Props> {
 
   onRefresh = () => {
     // TODO: Get new data
+  };
+
+  onPress = () => {
+    // TODO: Open camera barcode scanner
   };
 
   keyExtractor = (item: Object) => `book-${item.id}`;
@@ -180,6 +185,12 @@ class App extends React.PureComponent<Props> {
           keyExtractor={this.keyExtractor}
           renderItem={this.renderItem}
         />
+        <FAB
+          icon={require('./src/icons/barcode-scan.png')}
+          style={styles.fab}
+          onPress={this.onPress}
+          color={Colors.white}
+        />
       </SafeAreaView>
     );
   }
@@ -199,6 +210,11 @@ const styles = StyleSheet.create({
     padding: 10,
     color: 'white',
     backgroundColor: 'black',
+  },
+  fab: {
+    position: 'absolute',
+    right: 10,
+    bottom: ifX(40, 20),
   },
 });
 

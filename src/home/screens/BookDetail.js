@@ -66,7 +66,7 @@ class BookDetail extends React.PureComponent<Props> {
           key={`star-${i}`}
           name="star"
           size={18}
-          color="rgba(252, 226, 5, 1)"
+          color="#FFFFFF"
           style={styles.star}
         />,
       );
@@ -93,7 +93,7 @@ class BookDetail extends React.PureComponent<Props> {
             <Icon
               name={item.isAvailable ? 'check' : 'close'}
               size={18}
-              color={item.isAvailable ? '#0B6623' : '#FF0000'}
+              color="#FFFFFF"
               style={styles.star}
             />
           </View>
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 130, 160, 1)',
     height: 54,
     position: 'absolute',
-    bottom: ifX(40, 20),
+    bottom: ifX(30, 20),
     left: 20,
     right: 20,
   },

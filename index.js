@@ -14,6 +14,7 @@ const PAPER_THEME = {
   colors: {
     ...DefaultTheme.colors,
     text: '#FFFFFF',
+    accent: 'rgba(255, 164, 1, 1)',
   },
   fonts: {
     ...DefaultTheme.fonts,
