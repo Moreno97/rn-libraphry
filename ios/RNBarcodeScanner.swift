@@ -25,6 +25,7 @@ class PreviewView: UIView {
 class RNBarcodeScanner : UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
   var previewView = PreviewView()
   var captureSession: AVCaptureSession
+  var onBarcodeScanned: RCTBubblingEventBlock?
   var barcode :UILabel!
     
   lazy var vision = Vision.vision()
@@ -93,6 +94,11 @@ class RNBarcodeScanner : UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
     self.captureSession.stopRunning()
   }
   
+  @objc(onBarcodeScanned:)
+  func setOnBarcodeScanned(onBarcodeScanned: @escaping RCTBubblingEventBlock) {
+    self.onBarcodeScanned = onBarcodeScanned
+  }
+  
   internal func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
 
       if let barcodeDetector = self.barcodeDetector {
@@ -106,11 +112,8 @@ class RNBarcodeScanner : UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
               }
 
               for barcode in barcodes! {
-                print(barcode.rawValue!)
-                
-
-                self.barcode.text = ""
-                self.barcode.text = barcode.rawValue!
+                self.barcode.text = barcode.rawValue
+//                self.onBarcodeScanned!(["code": barcode.rawValue!])
               }
           }
       }

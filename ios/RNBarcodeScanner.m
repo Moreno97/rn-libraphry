@@ -12,4 +12,6 @@
 
 @interface RCT_EXTERN_MODULE(RNBarcodeScannerManager, RCTViewManager)
 
+RCT_EXPORT_VIEW_PROPERTY(onBarcodeScanned, RCTBubblingEventBlock)
+
 @end

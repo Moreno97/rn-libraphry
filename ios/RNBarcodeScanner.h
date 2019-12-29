@@ -10,5 +10,6 @@
 #define RNBarcodeScanner_h
 
 @interface RNBarcodeScanner : RCTView
+@property (nonatomic, copy) RCTBubblingEventBlock onBarcodeScanned;
 
 #endif /* RNBarcodeScanner_h */

@@ -1,12 +1,20 @@
-/*
+/**
  * @flow
  */
 
 import React from 'react';
 import { StyleSheet, requireNativeComponent } from 'react-native';
 
-const BarcodeScanner = () => (
-  <RNBarcodeScanner {...this.props} style={styles.container} />
+type Props = {
+  onBarcodeScanned: Function,
+};
+
+const BarcodeScanner = ({ onBarcodeScanned }: Props) => (
+  <RNBarcodeScanner
+    {...this.props}
+    style={styles.container}
+    onBarcodeScanned={onBarcodeScanned}
+  />
 );
 
 const styles = StyleSheet.create({
