@@ -26,8 +26,8 @@ class RNBarcodeScanner : UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
   var previewView = PreviewView()
   var captureSession: AVCaptureSession
   var onBarcodeScanned: RCTBubblingEventBlock?
-  var barcode :UILabel!
-    
+  
+  /// Related to Google MLKit library
   lazy var vision = Vision.vision()
   var barcodeDetector :VisionBarcodeDetector?
   
@@ -73,16 +73,6 @@ class RNBarcodeScanner : UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
     
     // Camera preview
     self.previewView.frame = self.bounds
-
-    self.barcode = UILabel()
-    self.barcode.text = ""
-    self.barcode.translatesAutoresizingMaskIntoConstraints = false
-    self.barcode.lineBreakMode = .byWordWrapping
-    self.barcode.numberOfLines = 0
-    self.barcode.textAlignment = .center
-    self.barcode.textColor = UIColor.white
-
-    self.addSubview(barcode)
     self.addSubview(self.previewView)
   
     captureSession.startRunning()
@@ -94,7 +84,7 @@ class RNBarcodeScanner : UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
     self.captureSession.stopRunning()
   }
   
-  @objc(onBarcodeScanned:)
+  @objc(setOnBarcodeScanned:)
   func setOnBarcodeScanned(onBarcodeScanned: @escaping RCTBubblingEventBlock) {
     self.onBarcodeScanned = onBarcodeScanned
   }
@@ -112,8 +102,7 @@ class RNBarcodeScanner : UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
               }
 
               for barcode in barcodes! {
-                self.barcode.text = barcode.rawValue
-//                self.onBarcodeScanned!(["code": barcode.rawValue!])
+                self.onBarcodeScanned!(["code": barcode.rawValue!])
               }
           }
       }

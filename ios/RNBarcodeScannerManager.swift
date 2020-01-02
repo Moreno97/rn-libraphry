@@ -9,7 +9,7 @@
 import Foundation
 
 @objc(RNBarcodeScannerManager)
-class RNBarcodeScannerManager: RCTViewManager {
+class RNBarcodeScannerViewManager: RCTViewManager {
 
   // Return the native view that represents your React component
   override func view() -> UIView! {

@@ -10,11 +10,7 @@ type Props = {
 };
 
 const BarcodeScanner = ({ onBarcodeScanned }: Props) => (
-  <RNBarcodeScanner
-    {...this.props}
-    style={styles.container}
-    onBarcodeScanned={onBarcodeScanned}
-  />
+  <RNBarcodeScanner style={styles.container} onBarcodeScanned={onBarcodeScanned} />
 );
 
 const styles = StyleSheet.create({
