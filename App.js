@@ -4,6 +4,7 @@
 
 import React from 'react';
 import {
+  ActionSheetIOS,
   SafeAreaView,
   View,
   SectionList,
@@ -13,11 +14,10 @@ import {
 } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { Text, FAB, Colors } from 'react-native-paper';
+import { ifX } from './src/utils';
 
 import BookItem from './src/home/uicomponents/BookItem';
 import BookDetail from './src/home/screens/BookDetail';
-import { ifX } from './src/utils';
-import { BarcodeScanner } from './src/RNBarcodeScanner';
 import BarcodeScannerModal from './src/home/screens/BarcodeScannerModal';
 
 type Props = {
@@ -73,7 +73,47 @@ class App extends React.PureComponent<Props> {
 
   onPress = () => {
     this.props.navigation.navigate('Barcode', {
-      onBarcodeScanned: () => {},
+      onBarcodeScanned: async (code: string) => {
+        this.props.navigation.pop(null);
+
+        const data: ?Object = await fetch(
+          `https://www.googleapis.com/books/v1/volumes?q=isbn:${code}`,
+          {
+            method: 'GET',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+          },
+        );
+        const json: {
+          kind: string,
+          totalItems: number,
+          items: Array<{
+            volumeInfo: Object,
+          }>,
+        } = await data.json();
+
+        // TODO: Translate
+        ActionSheetIOS.showActionSheetWithOptions(
+          {
+            title: json.items[0].volumeInfo.title,
+            message: json.items[0].volumeInfo.description,
+            options: ['Más información', 'Préstamo', 'Devolver', 'Cancelar'],
+            cancelButtonIndex: 3,
+          },
+          buttonIndex => {
+            if (buttonIndex === 0) {
+            }
+
+            if (buttonIndex === 1) {
+            }
+
+            if (buttonIndex === 2) {
+            }
+          },
+        );
+      },
     });
   };
 

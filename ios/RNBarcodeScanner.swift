@@ -101,9 +101,12 @@ class RNBarcodeScanner : UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
                 return
               }
 
-              for barcode in barcodes! {
-                self.onBarcodeScanned!(["code": barcode.rawValue!])
-              }
+            self.onBarcodeScanned!(["code": barcodes!.first?.rawValue! ?? ""])
+            
+            if (barcodes!.first?.rawValue! != nil) {
+              // Stop the session if we find the barcode
+              self.captureSession.stopRunning()
+            }
           }
       }
   }

@@ -24,7 +24,10 @@ const BarcodeScannerModal = (props: Props) => (
     </View>
     <BarcodeScanner
       onBarcodeScanned={(event: { nativeEvent: Object }) => {
-        console.log(event.nativeEvent);
+        if (event.nativeEvent.code) {
+          props.navigation.state.params.onBarcodeScanned(event.nativeEvent.code);
+        }
+        console.log();
       }}
     />
   </View>
